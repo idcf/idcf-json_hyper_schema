@@ -1,0 +1,184 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "all",
+  "description": "all",
+  "definitions": {
+    "ref": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "path_ref"
+        }
+      }
+    },
+    "ref_schema": {
+      "id": "#ref_id",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "example": "ref_id"
+        },
+        "param": {
+          "type": "object",
+          "properties": {
+            "nest": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ref_in_schema": {
+      "type": "object",
+      "properties": {
+        "nest": {
+          "id": "#nest_param",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "properties": {
+    "test": {
+      "title": "",
+      "links": [
+        {
+          "title": "none",
+          "description": "",
+          "href": "/api/hoge",
+          "method": "get",
+          "rel": "self",
+          "schema": {
+            "properties": {}
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "not_found_ref",
+          "description": "",
+          "href": "/api/hoge",
+          "method": "post",
+          "rel": "self",
+          "schema": {
+            "$ref": "#not_found"
+          },
+          "targetSchema": {
+            "$ref": "#/not_found_path"
+          }
+        },
+        {
+          "title": "ref",
+          "description": "",
+          "href": "/api/hoge",
+          "method": "post",
+          "rel": "self",
+          "schema": {
+            "example": "",
+            "properties": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "path_ref"
+                }
+              }
+            }
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "expansion_id",
+          "description": "",
+          "href": "/api/hoge",
+          "method": "post",
+          "rel": "self",
+          "schema": {
+            "type": "object",
+            "example": "",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "example": "ref_id"
+              },
+              "param": {
+                "type": "object",
+                "properties": {
+                  "nest": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "targetSchema": {
+            "example": "",
+            "properties": {
+              "nest": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "title": "url_find",
+          "description": "",
+          "href": "/api/hoge",
+          "method": "post",
+          "rel": "self",
+          "schema": {
+            "example": "",
+            "properties": {
+              "schemaArray": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#"
+                }
+              }
+            }
+          },
+          "targetSchema": {
+            "properties": {
+              "schemaArray": {
+                "$ref": "https://raw.githubusercontent.com/json-schema-org/json-schema-spec/master/archive/draft-04/schema.json"
+              }
+            }
+          }
+        },
+        {
+          "title": "str_ref",
+          "description": "",
+          "href": "/api/hoge",
+          "method": "post",
+          "rel": "self",
+          "schema": {
+            "properties": "#not_found"
+          },
+          "targetSchema": {
+            "example": "",
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "path_ref"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

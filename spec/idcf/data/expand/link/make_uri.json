@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "sample",
+  "description": "",
+  "definitions": {},
+  "properties": {
+    "test": {
+      "links": [
+        {
+          "title": "none",
+          "description": "",
+          "href": "/api",
+          "method": "get",
+          "rel": "self",
+          "schema": {
+            "properties": {}
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "url",
+          "description": "",
+          "href": "/api/{arg1}/{arg2}",
+          "method": "get",
+          "rel": "self",
+          "schema": {
+            "properties": {}
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "get_href_only",
+          "description": "",
+          "href": "/api{?hoge,piyo}",
+          "method": "get",
+          "rel": "self",
+          "schema": {
+            "properties": {}
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "get_schema_only",
+          "description": "",
+          "href": "/api",
+          "method": "get",
+          "rel": "self",
+          "schema": {
+            "properties": {
+              "hoge": {
+                "type": "string"
+              },
+              "piyo": {
+                "type": "string"
+              }
+            }
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "get_mix",
+          "description": "",
+          "href": "/api{?hoge}",
+          "method": "get",
+          "rel": "self",
+          "schema": {
+            "properties": {
+              "piyo": {
+                "type": "string"
+              }
+            }
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "post",
+          "description": "",
+          "href": "/api",
+          "method": "post",
+          "rel": "self",
+          "schema": {
+            "properties": {
+              "hoge": {
+                "type": "string"
+              }
+            }
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "mix",
+          "description": "",
+          "href": "/api/{arg1}{?hoge}",
+          "method": "post",
+          "rel": "self",
+          "schema": {
+            "properties": {
+              "hoge": {
+                "type": "string"
+              },
+              "piyo": {
+                "type": "string"
+              }
+            }
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        }
+      ]
+    }
+  }
+}

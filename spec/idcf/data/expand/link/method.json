@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "sample",
+  "description": "",
+  "definitions": {},
+  "properties": {
+    "test": {
+      "links": [
+        {
+          "title": "none",
+          "description": "",
+          "href": "",
+          "method": "",
+          "rel": "self",
+          "schema": {
+            "properties": {}
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "exist",
+          "description": "",
+          "href": "",
+          "method": "test_exist",
+          "rel": "self",
+          "schema": {
+            "properties": {}
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "lower",
+          "description": "",
+          "href": "",
+          "method": "get",
+          "rel": "self",
+          "schema": {
+            "properties": {}
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "upper",
+          "description": "",
+          "href": "",
+          "method": "GET",
+          "rel": "self",
+          "schema": {
+            "properties": {}
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        }
+      ]
+    }
+  }
+}

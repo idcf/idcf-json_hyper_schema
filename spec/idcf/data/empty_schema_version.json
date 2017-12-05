@@ -1,0 +1,9 @@
+{
+  "$schema": "",
+  "title": "sample",
+  "description": "",
+  "definitions": {},
+  "properties": {
+    "test": {}
+  }
+}

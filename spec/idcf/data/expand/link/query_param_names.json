@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "sample",
+  "description": "",
+  "definitions": {},
+  "properties": {
+    "test": {
+      "links": [
+        {
+          "title": "no_param",
+          "description": "",
+          "href": "/api",
+          "method": "",
+          "rel": "self",
+          "schema": {
+            "properties": {}
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "one_url_param",
+          "description": "",
+          "href": "/api{?hoge}",
+          "method": "",
+          "rel": "self",
+          "schema": {
+            "properties": {}
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        },
+        {
+          "title": "multi_url_param",
+          "description": "",
+          "href": "/api{?hoge,piyo}",
+          "method": "",
+          "rel": "self",
+          "schema": {
+            "properties": {}
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        }
+      ]
+    }
+  }
+}

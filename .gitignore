@@ -1,0 +1,10 @@
+/.bundle/
+/coverage/
+/doc/
+/spec/reports/
+/tmp/
+/vendor
+.idea
+*.iml
+.DS_Store
+.ruby-version

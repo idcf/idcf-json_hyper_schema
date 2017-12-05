@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "sample",
+  "description": "",
+  "definitions": {
+    "path": {
+      "type": "string",
+      "example": "http://http://example.com/"
+    }
+  },
+  "properties": {
+    "test": {
+      "links": [
+        {
+          "title": "async",
+          "href": "/test",
+          "method": "GET",
+          "rel": "self",
+          "$async": true,
+          "schema": {
+            "properties": {
+              "properties_id": {
+                "id": "#un_reference_id",
+                "type": "string",
+                "example": "test"
+              },
+              "not_found": {
+                "$ref": "#not_found"
+              },
+              "prefix_un_hash": {
+                "$ref": "definitions/path"
+              },
+              "prefix_slash": {
+                "$ref": "#/definitions/path"
+              },
+              "prefix_un_slash": {
+                "$ref": "#definitions/path"
+              },
+              "un_reference": {
+                "$ref": "#properties/test/links/0/schema/properties/properties_id"
+              }
+            }
+          },
+          "targetSchema": {
+            "properties": {}
+          }
+        }
+      ]
+    }
+  }
+}

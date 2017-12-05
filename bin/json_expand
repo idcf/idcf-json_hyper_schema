@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'idcf/json_hyper_schema'
+require 'active_support'
+require 'active_support/core_ext'
+require 'json'
+
+raise 'not found path' if ARGV.empty?
+path = File.expand_path(ARGV[0])
+analyst = Idcf::JsonHyperSchema::Analyst.new.load(path)
+puts JSON.pretty_generate(analyst.load_schema)

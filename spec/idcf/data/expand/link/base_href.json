@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "sample",
+  "description": "",
+  "definitions": {},
+  "properties": {
+    "test": {
+      "links": [
+        {
+          "title": "none",
+          "description": "",
+          "href": "",
+          "method": "",
+          "rel": "self",
+          "schema": {
+            "properties": {}
+          },
+          "targetSchema": {
+            "example": {},
+            "properties": {}
+          }
+        }
+      ],
+      "properties": {
+        "full": {
+          "type": "object",
+          "base": "http://example.com",
+          "links": [
+            {
+              "title": "full",
+              "description": "",
+              "href": "/api/full",
+              "method": "",
+              "rel": "self",
+              "schema": {
+                "properties": {}
+              },
+              "targetSchema": {
+                "example": {},
+                "properties": {}
+              }
+            }
+          ],
+          "properties": {
+            "add": {
+              "type": "object",
+              "base": "/api/add",
+              "links": [
+                {
+                  "title": "add",
+                  "description": "",
+                  "href": "/hoge",
+                  "method": "",
+                  "rel": "self",
+                  "schema": {
+                    "properties": {}
+                  },
+                  "targetSchema": {
+                    "example": {},
+                    "properties": {}
+                  }
+                }
+              ]
+            },
+            "override": {
+              "type": "object",
+              "base": "http://example.com/override",
+              "links": [
+                {
+                  "title": "override",
+                  "description": "",
+                  "href": "/api",
+                  "method": "",
+                  "rel": "self",
+                  "schema": {
+                    "properties": {}
+                  },
+                  "targetSchema": {
+                    "example": {},
+                    "properties": {}
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

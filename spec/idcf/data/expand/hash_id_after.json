@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "sample",
+  "description": "",
+  "definitions": {
+    "str_id": {
+      "id": "",
+      "type": "string",
+      "example": "http://http://example.com/"
+    },
+    "int_id": {
+      "id": 1,
+      "type": "string",
+      "example": "http://http://example.com/"
+    },
+    "array_id": {
+      "id": [],
+      "type": "string",
+      "example": "http://http://example.com/"
+    },
+    "hash_id": {
+      "id": {},
+      "type": "string",
+      "example": "http://http://example.com/"
+    }
+  },
+  "properties": {
+    "test": {
+      "links": [
+        {
+          "title": "async",
+          "href": "/test",
+          "method": "GET",
+          "rel": "self",
+          "$async": true,
+          "schema": {
+            "properties": {
+              "str_id": {
+                "type": "string",
+                "example": "http://http://example.com/"
+              },
+              "int_id": {
+                "type": "string",
+                "example": "http://http://example.com/"
+              },
+              "array_id": {
+                "type": "string",
+                "example": "http://http://example.com/"
+              },
+              "hash_id": {
+                "id": {},
+                "type": "string",
+                "example": "http://http://example.com/"
+              }
+            }
+          },
+          "targetSchema": {
+            "properties": {}
+          }
+        }
+      ]
+    }
+  }
+}

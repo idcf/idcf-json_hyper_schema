@@ -1,0 +1,9 @@
+{
+  "$schema": "not_found",
+  "title": "sample",
+  "description": "",
+  "definitions": {},
+  "properties": {
+    "test": {}
+  }
+}
