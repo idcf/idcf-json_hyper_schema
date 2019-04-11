@@ -46,14 +46,14 @@ module Idcf
         #
         # @return String
         def href
-          href = @data.href
+          href_str = @data.href
           return '' if href.nil?
           l = []
-          href.split('/').each do |v|
+          href_str.split('/').each do |v|
             next if v.empty?
             l << v.gsub(PARAMS_REGEXP, '%s').gsub(QUERY_PARAMS_REGEXP, '')
           end
-          href_head = href =~ FULL_HREF_REGEXP ? '' : base_href
+          href_head = href_str =~ FULL_HREF_REGEXP ? "#{l.shift}/" : base_href
           "#{href_head}/#{l.join('/')}"
         end
 
@@ -132,10 +132,10 @@ module Idcf
             param = args.deep_dup
             next unless param.class == Hash
             param = param.stringify_keys
-            make_query_params(args).each do |qk, _qv|
+            make_query_params(args).each_key do |qk|
               param.delete(qk)
             end
-            properties.each do |pk, _pv|
+            properties.each_key do |pk|
               result[pk] = param[pk] if param.key?(pk)
             end
           end
