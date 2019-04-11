@@ -47,7 +47,7 @@ module Idcf
         # @return String
         def href
           href_str = @data.href
-          return '' if href.nil?
+          return '' if href_str.nil?
           l = []
           href_str.split('/').each do |v|
             next if v.empty?
