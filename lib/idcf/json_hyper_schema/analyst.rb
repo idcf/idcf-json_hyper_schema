@@ -1,8 +1,18 @@
+require 'json_schema'
+require 'idcf/json_hyper_schema/validation'
 module Idcf
   module JsonHyperSchema
     # json-hyper-schema analyst
     class Analyst
       attr_reader :process_version, :schema, :load_schema
+
+      def json_schema_init
+        configuration = JsonSchema.configuration
+        Idcf::JsonHyperSchema::Validation.validations.each do |key, val|
+          configuration.register_format(key, val)
+        end
+        self
+      end
 
       # json file laod
       #
@@ -40,6 +50,7 @@ module Idcf
       #
       # @return Expands::LinkInfoBase
       def links
+        json_schema_init
         p_schema         = JsonSchema.parse!(@load_schema)
         @process_version = schema_version(p_schema)
         p_schema.expand_references!
@@ -53,8 +64,9 @@ module Idcf
       # @return Expands::LinkInfoBase
       def schema_links(schema, options = {})
         ex_schema = expand(schema, options)
-        p_schema  = JsonSchema.parse!(ex_schema.schema)
-        t_v       = @process_version
+        json_schema_init
+        p_schema = JsonSchema.parse!(ex_schema.schema)
+        t_v      = @process_version
         p_schema.expand_references!
         result           = find_links(p_schema)
         @process_version = t_v
@@ -95,7 +107,7 @@ module Idcf
             result << link_obj
           end
 
-          schema.properties.each do |_, sub|
+          schema.properties.each_value do |sub|
             result.concat(find_links(sub))
           end
         end

@@ -55,7 +55,7 @@ module Idcf
         def make_ids(schema)
           {}.tap do |result|
             next if schema['definitions'].nil?
-            schema['definitions'].each do |_k, v|
+            schema['definitions'].each_value do |v|
               result[v['id']] = v.deep_dup unless v['id'].nil?
               result.merge!(search_child_ids(v))
             end
@@ -63,14 +63,15 @@ module Idcf
         end
 
         def search_child_ids(child)
-          {}.tap do |result|
-            next unless child.class == Hash
-            child.each do |_k, v|
-              next unless v.class == Hash
-              result[v['id']] = v.deep_dup unless v['id'].nil?
-              result.merge!(search_child_ids(v))
-            end
+          result = {}
+          return result unless child.class == Hash
+          child.each_value do |v|
+            next unless v.class == Hash
+            id = v['id']
+            result[id] = v.deep_dup unless id.nil?
+            result.merge!(search_child_ids(v))
           end
+          result
         end
 
         def delete_id(data)
@@ -95,7 +96,8 @@ module Idcf
         end
 
         def exp_hash(schema)
-          schema.keys.each do |k|
+          list = schema.keys
+          list.each do |k|
             exp = expansion(k, schema[k])
             if k == '$ref' && exp.class == Hash
               schema.delete(k)
