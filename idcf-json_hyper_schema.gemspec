@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec'
 
-  spec.add_dependency 'activerecord', '~> 4.2', '>= 4.2.3'
-  spec.add_dependency 'activesupport', '~> 4.2', '>= 4.2.3'
+  spec.add_dependency 'activemodel', '>= 4.2.3'
+  spec.add_dependency 'activesupport', '>= 4.2.3'
   spec.add_dependency 'json_schema', '~> 0.17.0'
 end
