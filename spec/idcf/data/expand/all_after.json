@@ -154,7 +154,7 @@
           "targetSchema": {
             "properties": {
               "schemaArray": {
-                "$ref": "https://raw.githubusercontent.com/json-schema-org/json-schema-spec/master/archive/draft-04/schema.json"
+                "$ref": "https://raw.githubusercontent.com/json-schema-org/json-schema-spec/draft-04/schema.json"
               }
             }
           }

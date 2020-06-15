@@ -41,7 +41,17 @@ module Idcf
       def expand(schema, options = {})
         return schema unless schema.class == Hash
         @process_version = schema_version(schema)
-        result           = expand_class.new(options)
+        # MEMO:
+        # Ruby2.7系では以下のような警告がでる
+        #
+        # Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+        #
+        # Ruby2.7系以上だけをサポートの対象とするなら場合分ける必要ないがそうではないので場合分けをしている。
+        if RUBY_VERSION >= '2.7'
+          result = expand_class.new(**options)
+        else
+          result = expand_class.new(options)
+        end
         result.do!(schema)
         result
       end

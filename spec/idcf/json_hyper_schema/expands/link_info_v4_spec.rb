@@ -157,7 +157,7 @@ describe 'idcf/json_hyper_schema/expands/link_info_v4' do
     }
   }
 
-  [:get_schema_only, :get_mix].each do |key|
+  %i(get_schema_only get_mix).each do |key|
     list[key] = list[:get_href_only].deep_dup
   end
 

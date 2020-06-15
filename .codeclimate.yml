@@ -14,6 +14,10 @@ engines:
 ratings:
   paths:
     - "**.rb"
+checks:
+  method-complexity:
+    config:
+      threshold: 10
 exclude_paths:
   - vendor/bundle
   - .idea
