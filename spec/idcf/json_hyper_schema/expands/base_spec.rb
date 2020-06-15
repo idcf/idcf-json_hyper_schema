@@ -48,7 +48,7 @@ describe 'idcf/json_hyper_schema/expands/base' do
     ).to eq j
   end
 
-  %w(fullpath id hash_id url all).each do |name|
+  %w[fullpath id hash_id url all].each do |name|
     it "do!_#{name}" do
       path   = File.expand_path("#{name}_before.json", data_dir)
       before = JSON.parse(File.read(path))

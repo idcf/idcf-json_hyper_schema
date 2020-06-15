@@ -144,7 +144,6 @@
             "properties": {
               "schemaArray": {
                 "type": "array",
-                "minItems": 1,
                 "items": {
                   "$ref": "#"
                 }
@@ -154,7 +153,7 @@
           "targetSchema": {
             "properties": {
               "schemaArray": {
-                "$ref": "https://raw.githubusercontent.com/json-schema-org/json-schema-spec/master/archive/draft-04/schema.json"
+                "$ref": "https://raw.githubusercontent.com/json-schema-org/json-schema-spec/dba92b702c94858162f653590230e7573c8b7dd0/hyper-schema.json"
               }
             }
           }

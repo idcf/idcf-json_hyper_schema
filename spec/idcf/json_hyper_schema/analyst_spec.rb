@@ -33,7 +33,7 @@ describe 'idcf/json_hyper_schema/analyst' do
     end.to raise_error(Exception)
   end
 
-  %w(notfound empty.txt not_found_schema_version.json).each do |v|
+  %w[notfound empty.txt not_found_schema_version.json].each do |v|
     it 'refute_load' do
       expect do
         analyst.load(File.expand_path(v, data_dir))
@@ -47,7 +47,7 @@ describe 'idcf/json_hyper_schema/analyst' do
     end
   end
 
-  %w(not_schema_version.json not_link.json empty_link.json).each do |v|
+  %w[not_schema_version.json not_link.json empty_link.json].each do |v|
     it 'assert_load_no_link' do
       path = File.expand_path(v, data_dir)
       expect(analyst.load(path)).to eq analyst
@@ -75,7 +75,7 @@ describe 'idcf/json_hyper_schema/analyst' do
     expect(analyst.links.empty?).to eq true
   end
 
-  %w(not_link.json empty_link.json onelink.json).each do |v|
+  %w[not_link.json empty_link.json onelink.json].each do |v|
     it 'assert_load' do
       expect(analyst.load(File.expand_path(v, data_dir))).to eq analyst
     end
@@ -94,14 +94,14 @@ describe 'idcf/json_hyper_schema/analyst' do
     expect(analyst.links.empty?).to eq false
   end
 
-  %w(not_link.json empty_link.json).each do |v|
+  %w[not_link.json empty_link.json].each do |v|
     it 'schema_no_links' do
       j = JSON.parse(File.read(File.expand_path(v, data_dir)))
       expect(analyst.schema_links(j).empty?).to eq true
     end
   end
 
-  %w(onelink.json).each do |v|
+  %w[onelink.json].each do |v|
     it 'schema_links' do
       j = JSON.parse(File.read(File.expand_path(v, data_dir)))
       expect(analyst.schema_links(j).empty?).to eq false

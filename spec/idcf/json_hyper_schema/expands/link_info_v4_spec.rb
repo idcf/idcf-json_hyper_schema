@@ -42,20 +42,20 @@ describe 'idcf/json_hyper_schema/expands/link_info_v4' do
     },
     url_param_names:   {
       no_param:        [],
-      one_url_param:   %w(hoge),
-      multi_url_param: %w(hoge piyo)
+      one_url_param:   %w[hoge],
+      multi_url_param: %w[hoge piyo]
     },
     query_param_names: {
       no_param:        [],
-      one_url_param:   %w(hoge),
-      multi_url_param: %w(hoge piyo)
+      one_url_param:   %w[hoge],
+      multi_url_param: %w[hoge piyo]
     },
     properties:        {
       none: {}
     },
     required:          {
       none:  [],
-      exist: %w(hoge piyo)
+      exist: %w[hoge piyo]
     }
   }.each do |name, v|
     path  = File.expand_path("#{name}.json", data_dir)
@@ -72,7 +72,7 @@ describe 'idcf/json_hyper_schema/expands/link_info_v4' do
     path  = File.expand_path('properties.json', data_dir)
     links = analyst.load(path).links
     link  = search_link(links, 'exist')
-    expect(link.properties.keys).to eq %w(id num)
+    expect(link.properties.keys).to eq %w[id num]
   end
 
   get_param = {
@@ -108,7 +108,7 @@ describe 'idcf/json_hyper_schema/expands/link_info_v4' do
                   {}
     },
     url:           {
-      url_param:  %w(aaa bbb),
+      url_param:  %w[aaa bbb],
       params:     {},
       host:       nil,
       uri_result: '/api/aaa/bbb?',
@@ -157,7 +157,7 @@ describe 'idcf/json_hyper_schema/expands/link_info_v4' do
     }
   }
 
-  [:get_schema_only, :get_mix].each do |key|
+  %i[get_schema_only get_mix].each do |key|
     list[key] = list[:get_href_only].deep_dup
   end
 
@@ -191,7 +191,7 @@ describe 'idcf/json_hyper_schema/expands/link_info_v4' do
 
   [
     [],
-    %w(aaa)
+    %w[aaa]
   ].each do |v|
     it "make_query_params(#{v})" do
       link   = search_link(links, :none)
@@ -252,7 +252,7 @@ describe 'idcf/json_hyper_schema/expands/link_info_v4' do
       base_href: 'http://example.com/override'
     }
   }.each do |k, v|
-    %i(href base_href).each do |method|
+    %i[href base_href].each do |method|
       it "#{method}(#{k})" do
         link = search_link(href_links, k)
         expect(link.__send__(method)).to eq v[method]
