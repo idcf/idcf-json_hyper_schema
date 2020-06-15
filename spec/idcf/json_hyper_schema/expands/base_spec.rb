@@ -25,7 +25,17 @@ describe 'idcf/json_hyper_schema/expands/base' do
   ].each do |v|
     it 'new' do
       expect do
-        cls.new(v)
+        # MEMO:
+        # The following warning appears in Ruby 2.7 series.
+        #
+        # Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+        #
+        # If you want to support only Ruby 2.7 or higher, it is not necessary to distinguish between cases, but it is not so.
+        if RUBY_VERSION >= '2.7'
+          cls.new(**v)
+        else
+          cls.new(v)
+        end
       end.not_to raise_error(Exception)
     end
   end

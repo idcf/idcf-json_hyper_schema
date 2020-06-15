@@ -142,7 +142,7 @@ module Idcf
 
         def global_find(path)
           return nil unless path =~ /#.+/
-          res           = open(path)
+          res           = URI.open(path)
           code, message = res.status
           raise "error: #{message}" unless code == '200'
 
