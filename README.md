@@ -62,8 +62,7 @@ p expand_obj.schema
 require 'idcf/json_hyper_schema'
 
 path    = File.expand_path('./sample.json')
-analyst = Idcf::JsonHyperSchema::Analyst.new.load(path)
-p analyst.links
+p Idcf::JsonHyperSchema::Analyst.new.load(path).links
 ```
 
 or
